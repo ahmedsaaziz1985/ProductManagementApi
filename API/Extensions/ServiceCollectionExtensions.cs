@@ -9,6 +9,7 @@ public static class ServiceCollectionExtensions
     {
         services.AddApplication();
         services.AddInfrastructure(configuration);
+        services.AddJwtAuthentication(configuration);
 
         services.AddControllers();
         services.AddOpenApi();

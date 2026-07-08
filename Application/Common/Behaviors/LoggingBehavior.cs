@@ -72,6 +72,15 @@ public class LoggingBehavior<TRequest, TResponse>(
                     conflictException.Errors);
                 break;
 
+            case UnauthorizedException:
+                logger.LogWarning(
+                    exception,
+                    "Unauthorized access in {RequestName} after {ElapsedMilliseconds}ms: {Message}",
+                    requestName,
+                    elapsedMilliseconds,
+                    exception.Message);
+                break;
+
             case NotFoundException:
                 logger.LogWarning(
                     exception,

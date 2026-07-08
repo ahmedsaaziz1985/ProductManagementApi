@@ -84,6 +84,7 @@ public static class ExceptionMapper
     private static string GetTypeUri(int statusCode) => statusCode switch
     {
         AppStatusCodes.Status400BadRequest => "https://tools.ietf.org/html/rfc7231#section-6.5.1",
+        AppStatusCodes.Status401Unauthorized => "https://tools.ietf.org/html/rfc7235#section-3.1",
         AppStatusCodes.Status404NotFound => "https://tools.ietf.org/html/rfc7231#section-6.5.4",
         AppStatusCodes.Status409Conflict => "https://tools.ietf.org/html/rfc7231#section-6.5.8",
         _ => "https://tools.ietf.org/html/rfc7231#section-6.6.1"

@@ -12,7 +12,8 @@ if (app.Environment.IsDevelopment())
 {
     using var scope = app.Services.CreateScope();
     var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    dbContext.Database.EnsureCreated();
+    var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+    DatabaseInitializer.Initialize(dbContext, logger);
 
     app.MapOpenApi();
     app.UseSwaggerDocumentation();
@@ -21,6 +22,7 @@ if (app.Environment.IsDevelopment())
 app.UseCustomExceptionHandling();
 app.UseRequestLogging();
 app.UseHttpsRedirection();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 

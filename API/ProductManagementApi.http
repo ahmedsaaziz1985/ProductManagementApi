@@ -1,31 +1,38 @@
 @ProductManagementApi.API_HostAddress = http://localhost:5204
+@token =
 
+### Register
+POST {{ProductManagementApi.API_HostAddress}}/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "user@example.com",
+  "password": "Password1",
+  "confirmPassword": "Password1"
+}
+
+###
+
+### Login
+POST {{ProductManagementApi.API_HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "user@example.com",
+  "password": "Password1"
+}
+
+###
+
+### Get Products (requires JWT)
 GET {{ProductManagementApi.API_HostAddress}}/api/products
-Accept: application/json
-
-###
-
-GET {{ProductManagementApi.API_HostAddress}}/api/products/search?search=pen
-Accept: application/json
-
-###
-
-GET {{ProductManagementApi.API_HostAddress}}/api/products/search?search=USD
-Accept: application/json
-
-###
-
-GET {{ProductManagementApi.API_HostAddress}}/api/products/search?search=29.99
-Accept: application/json
-
-###
-
-GET {{ProductManagementApi.API_HostAddress}}/api/products/search?search=100
+Authorization: Bearer {{token}}
 Accept: application/json
 
 ###
 
 POST {{ProductManagementApi.API_HostAddress}}/api/products
+Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
@@ -38,22 +45,8 @@ Content-Type: application/json
 
 ###
 
-GET {{ProductManagementApi.API_HostAddress}}/api/products/{{productId}}
+GET {{ProductManagementApi.API_HostAddress}}/api/products/search?search=pen
+Authorization: Bearer {{token}}
 Accept: application/json
 
 ###
-
-PUT {{ProductManagementApi.API_HostAddress}}/api/products/{{productId}}
-Content-Type: application/json
-
-{
-  "name": "Updated Product",
-  "description": "Updated description",
-  "price": 39.99,
-  "stock": 80,
-  "currency": "USD"
-}
-
-###
-
-DELETE {{ProductManagementApi.API_HostAddress}}/api/products/{{productId}}

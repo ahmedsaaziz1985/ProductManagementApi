@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProductManagementApi.Application.Features.Products.Commands.CreateProduct;
 using ProductManagementApi.Application.Features.Products.Commands.DeleteProduct;
@@ -12,6 +13,7 @@ namespace ProductManagementApi.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class ProductsController(ISender sender) : ControllerBase
 {
     [HttpGet]
