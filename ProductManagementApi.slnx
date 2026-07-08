@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="Domain/ProductManagementApi.Domain.csproj" />
+  <Project Path="Application/ProductManagementApi.Application.csproj" />
+  <Project Path="Infrastructure/ProductManagementApi.Infrastructure.csproj" />
+  <Project Path="API/ProductManagementApi.API.csproj" />
+  <Project Path="Tests/IntegrationTests/ProductManagementApi.IntegrationTests.csproj" />
+</Solution>

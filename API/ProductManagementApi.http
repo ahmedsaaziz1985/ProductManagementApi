@@ -1,0 +1,59 @@
+@ProductManagementApi.API_HostAddress = http://localhost:5204
+
+GET {{ProductManagementApi.API_HostAddress}}/api/products
+Accept: application/json
+
+###
+
+GET {{ProductManagementApi.API_HostAddress}}/api/products/search?search=pen
+Accept: application/json
+
+###
+
+GET {{ProductManagementApi.API_HostAddress}}/api/products/search?search=USD
+Accept: application/json
+
+###
+
+GET {{ProductManagementApi.API_HostAddress}}/api/products/search?search=29.99
+Accept: application/json
+
+###
+
+GET {{ProductManagementApi.API_HostAddress}}/api/products/search?search=100
+Accept: application/json
+
+###
+
+POST {{ProductManagementApi.API_HostAddress}}/api/products
+Content-Type: application/json
+
+{
+  "name": "Sample Product",
+  "description": "A sample product",
+  "price": 29.99,
+  "stock": 100,
+  "currency": "USD"
+}
+
+###
+
+GET {{ProductManagementApi.API_HostAddress}}/api/products/{{productId}}
+Accept: application/json
+
+###
+
+PUT {{ProductManagementApi.API_HostAddress}}/api/products/{{productId}}
+Content-Type: application/json
+
+{
+  "name": "Updated Product",
+  "description": "Updated description",
+  "price": 39.99,
+  "stock": 80,
+  "currency": "USD"
+}
+
+###
+
+DELETE {{ProductManagementApi.API_HostAddress}}/api/products/{{productId}}
